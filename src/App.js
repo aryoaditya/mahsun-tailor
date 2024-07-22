@@ -1,9 +1,9 @@
+import LoginPage from "./pages/login";
+
 function App() {
   return (
-    <h1 className="font-extrabold text-3xl underline">
-      Hello world!
-    </h1>
+    <LoginPage />
   );
 }
 
-export default App;
+export default App; 
