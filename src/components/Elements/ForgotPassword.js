@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 function ForgotPassword() {
   return (
     <div className="font-medium text-xs text-end text-blue-700 hover:text-blue-800">
-      <a href="">Lupa password</a>
+      <Link to="/register">Lupa password</Link>
     </div>
   );
 }

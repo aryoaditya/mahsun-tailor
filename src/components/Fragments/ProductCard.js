@@ -7,9 +7,9 @@ function ProductCard(props) {
         alt="jas-pria"
         className={`w-full h-[187px] rounded-lg object-cover ${cut}`}
       />
-      <div className="flex justify-between text-primary text-[15px] px-3">
+      <div className="flex justify-between text-primary text-[15px] px-3 font-medium">
         <p>{productType}</p>
-        <p>{price}</p>
+        <p className="italic">{price}</p>
       </div>
     </div>
   );

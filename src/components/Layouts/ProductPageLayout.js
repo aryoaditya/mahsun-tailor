@@ -3,23 +3,23 @@ import PageTitle from "../Elements/Title/PageTitle";
 
 function ProductPageLayout() {
   return (
-    <main className="flex flex-col flex-1 px-7 pt-10 pb-12 min-h-screen items-center bg-background">
+    <main className="flex flex-col flex-1 px-7 pb-12 min-h-screen items-center bg-background">
       <PageTitle title={"Produk"} />
       <ProductCard
         productType={"Jas Pria"}
-        price={"Mulai dari Rp 1.099.000"}
+        price={"Mulai dari Rp. 1.099.000"}
         img={"/assets/img/men-suit.jpg"}
         cut={"object-buttom"}
       />
       <ProductCard
         productType={"Kebaya"}
-        price={"Mulai dari 1.099.000"}
+        price={"Mulai dari Rp. 1.099.000"}
         img={"/assets/img/kebaya.jpg"}
         cut={"object-center"}
       />
       <ProductCard
         productType={"Dress"}
-        price={"Mulai dari 1.099.000"}
+        price={"Mulai dari Rp. 1.099.000"}
         img={"/assets/img/dress.jpg"}
         cut={"object-buttom"}
       />

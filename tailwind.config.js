@@ -8,7 +8,7 @@ module.exports = {
       },
       colors: {
         primary: "#0F5955",
-        background: "rgba(36, 126, 150, 0.06)",
+        background: "rgba(36, 126, 150, 0.05)",
         gradient1: "#187CB4",
         gradient2: "#247E96",
         gradient3: "#1B7670",
