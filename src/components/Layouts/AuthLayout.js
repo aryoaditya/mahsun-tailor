@@ -10,7 +10,7 @@ function AuthLayout({ title, children }) {
 
       <main className="flex flex-col flex-1 pb-10">
         {/* Title */}
-        <PageTitle>{title}</PageTitle>
+        <PageTitle title={title} />
 
         {/* Form */}
         {children}

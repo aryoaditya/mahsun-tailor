@@ -2,7 +2,6 @@ import Label from "../Elements/Input/Label";
 import Input from "../Elements/Input/Input";
 import BlueButton from "../Elements/Buttons/BlueButton";
 import ForgotPassword from "../Elements/ForgotPassword";
-import SecondaryButton from "../Elements/Buttons/SecondaryButton";
 
 function FormLogin() {
   return (
@@ -20,7 +19,15 @@ function FormLogin() {
 
         <BlueButton name={"Login"} />
       </form>
-      <SecondaryButton route={"/register"} name={"Sign Up"} />
+      <div className="flex justify-center text-[13px]">
+        <p>Belum punya akun? </p>
+        <a
+          href="/register"
+          className="text-blue-700 hover:text-blue-800 font-medium pl-1"
+        >
+          Daftar disini
+        </a>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import TeaserHomePage from "../Fragments/TeaserHomePage";
 
 function HomeLayout() {
   return (
-    <main className="flex flex-col flex-1 px-[18px] pt-10 min-h-screen">
+    <main className="flex flex-col flex-1 px-[18px] pt-10 pb-12 min-h-screen">
       <IntroTitle>
         Jasa Pembuatan Busana Terpercaya dan Berkualitas Sejak Tahun 2000
       </IntroTitle>

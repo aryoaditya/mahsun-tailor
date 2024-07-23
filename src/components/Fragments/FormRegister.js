@@ -33,9 +33,12 @@ function FormRegister() {
 
         <BlueButton name={"Sign Up"} />
       </form>
-      <div className="flex flex-col items-center justify-center text-[13px]">
-        <p>Sudah punya akun?</p>
-        <a href="/login" className="text-blue-700 hover:text-blue-800">
+      <div className="flex justify-center text-[13px]">
+        <p>Sudah punya akun? </p>
+        <a
+          href="/login"
+          className="text-blue-700 hover:text-blue-800 font-medium pl-1"
+        >
           Login disini
         </a>
       </div>
