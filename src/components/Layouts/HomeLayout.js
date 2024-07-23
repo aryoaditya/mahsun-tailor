@@ -11,6 +11,8 @@ function HomeLayout() {
         img={"/assets/img/busana.png"}
         subtitle={"Temukan model busanamu"}
         buttonName={"Lihat Selengkapnya"}
+        route={"/products"}
+        routeBtn={"/products"}
       >
         <p className="text-center font-normal text-[15px] mt-3">
           Menawarkan jasa pembuatan busana dengan berbagai model sesuai yang
@@ -31,6 +33,8 @@ function HomeLayout() {
         img={"/assets/img/Lokasi.png"}
         subtitle={"Temukan lokasi kami"}
         buttonName={"Booking Sekarang"}
+        route={"https://maps.app.goo.gl/xxNcumaM3xB1fGFeA"}
+        routeBtn={"/login"}
       >
         <p className="text-center font-normal text-[15px] mt-3">
           Datang ke tempat? Panggil penjahit?
