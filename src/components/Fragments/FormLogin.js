@@ -20,7 +20,7 @@ function FormLogin() {
                 
                 <BlueButton name={"Login"}/>
             </form>
-            <SecondaryButton name={"Sign Up"}/>
+            <SecondaryButton route={"/register"} name={"Sign Up"}/>
         </div>
     )
 }
