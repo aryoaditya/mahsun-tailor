@@ -1,6 +1,6 @@
 import GoogleLoginButton from "../Elements/Buttons/GoogleLoginButton";
-import PageTitle from "../Elements/PageTitle";
-import SimpleFooter from "../Fragments/SimpleFooter";
+import PageTitle from "../Elements/Title/PageTitle";
+import SimpleFooter from "../Fragments/Footers/SimpleFooter";
 import NavBar from "../Fragments/NavBar";
 
 function AuthLayout({ title, children }) {
@@ -10,7 +10,9 @@ function AuthLayout({ title, children }) {
 
             <main className="flex flex-col flex-1 pb-10">
                 {/* Title */}
-                <PageTitle title={ title }/>
+                <PageTitle>
+                    { title }
+                </PageTitle>
 
                 {/* Form */}
                 { children }
