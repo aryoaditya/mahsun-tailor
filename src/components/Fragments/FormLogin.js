@@ -5,24 +5,24 @@ import ForgotPassword from "../Elements/ForgotPassword";
 import SecondaryButton from "../Elements/Buttons/SecondaryButton";
 
 function FormLogin() {
-    return (
-        <div className="flex flex-col">
-            <form action="" className="flex flex-col px-[66px] mb-[11px]">
-                <Label label={"Email/username"} htmlFor="email"/>
-                <Input type={"email"} name="email" placeholder={"example@mail.com"} />
-                
-                <Label label={"Password"} htmlFor="password"/>
-                <Input type={"password"} name="password" placeholder={"**********"} />
+  return (
+    <div className="flex flex-col">
+      <form action="" className="flex flex-col px-[66px] mb-[11px]">
+        <Label label={"Email/username"} htmlFor="email" />
+        <Input type={"email"} name="email" placeholder={"example@mail.com"} />
 
-                <ForgotPassword />
+        <Label label={"Password"} htmlFor="password" />
+        <Input type={"password"} name="password" placeholder={"**********"} />
 
-                <div className="h-8"></div>
-                
-                <BlueButton name={"Login"}/>
-            </form>
-            <SecondaryButton route={"/register"} name={"Sign Up"}/>
-        </div>
-    )
+        <ForgotPassword />
+
+        <div className="h-8"></div>
+
+        <BlueButton name={"Login"} />
+      </form>
+      <SecondaryButton route={"/register"} name={"Sign Up"} />
+    </div>
+  );
 }
 
 export default FormLogin;
