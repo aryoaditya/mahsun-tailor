@@ -7,6 +7,7 @@ import RegisterPage from "./pages/register";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
 import BookingAntrianPage from "./pages/bookingAntrian";
+import BookingPage from "./pages/booking";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,12 @@ const router = createBrowserRouter([
     element: <ProductPage />,
   },
   {
-    path: "/booking",
+    path: "/queue-list",
     element: <BookingAntrianPage />,
+  },
+  {
+    path: "/booking",
+    element: <BookingPage />,
   },
 ]);
 
