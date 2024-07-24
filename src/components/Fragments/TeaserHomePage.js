@@ -9,7 +9,9 @@ function TeaserHomePage(props) {
 
       {children}
 
-      <BlueButton name={buttonName} route={route} position={"mx-auto"} />
+      <div className="text-[13px]">
+        <BlueButton name={buttonName} route={route} />
+      </div>
     </div>
   );
 }

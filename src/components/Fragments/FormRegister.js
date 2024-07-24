@@ -29,9 +29,11 @@ function FormRegister() {
           placeholder={"**********"}
         />
 
-        <div className="h-8"></div>
-
-        <BlueButton name={"Sign Up"} />
+        <div className="w-full flex justify-center">
+          <div className="mt-8 text-[13px] w-[100px]">
+            <BlueButton name={"Sign Up"} />
+          </div>
+        </div>
       </form>
       <div className="flex justify-center text-[13px]">
         <p>Sudah punya akun? </p>

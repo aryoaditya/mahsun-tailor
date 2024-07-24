@@ -53,7 +53,7 @@ function NavBar() {
         >
           Tentang
         </Link>
-        <div className="flex w-full bg-white py-3 justify-center gap-2">
+        <div className="flex w-full bg-white py-3 justify-center gap-2 text-[13px]">
           <SecondaryButton name={"Sign Up"} route={"/register"} />
           <BlueButton name={"Login"} route={"/login"} />
         </div>

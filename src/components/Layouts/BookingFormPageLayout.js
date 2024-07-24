@@ -59,9 +59,7 @@ function BookingFormPageLayout() {
             className="w-full align-top rounded-md py-3 px-3 mb-3 border border-primary border-opacity-20 text-sm text-primary focus:outline-sky-800 focus:outline-1"
           />
 
-          <div className="h-8"></div>
-
-          <div className="flex justify-end gap-2">
+          <div className="flex justify-end items-center gap-2 text-[13px] mt-8">
             <SecondaryButton name={"Kembali"} route={"/"} />
             <BlueButton name={"Booking"} />
           </div>

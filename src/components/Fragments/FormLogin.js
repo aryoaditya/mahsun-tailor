@@ -6,7 +6,7 @@ import ForgotPassword from "../Elements/ForgotPassword";
 function FormLogin() {
   return (
     <div className="flex flex-col">
-      <form action="" className="flex flex-col px-[66px] mb-[11px]">
+      <form action="" className="flex flex-col px-[66px] mb-4">
         <Label label={"Email/username"} htmlFor="email" />
         <Input type={"email"} name="email" placeholder={"example@mail.com"} />
 
@@ -14,10 +14,11 @@ function FormLogin() {
         <Input type={"password"} name="password" placeholder={"**********"} />
 
         <ForgotPassword />
-
-        <div className="h-8"></div>
-
-        <BlueButton name={"Login"} />
+        <div className="w-full flex justify-center">
+          <div className="mt-8 text-[13px] w-[100px]">
+            <BlueButton name={"Login"} />
+          </div>
+        </div>
       </form>
       <div className="flex justify-center text-[13px]">
         <p>Belum punya akun? </p>

@@ -43,7 +43,9 @@ function BookingAntrianPage() {
           estimasi={"-"}
         />
       </BookingList>
-      <BlueButton name={"Booking Sekarang"} />
+      <div className="text-[13px]">
+        <BlueButton name={"Booking Sekarang"} route={"/booking"} />
+      </div>
     </BookingPageLayout>
   );
 }
