@@ -1,10 +1,10 @@
-import BookingPageLayout from "../components/Layouts/BookingPageLayout";
+import BookingFormPageLayout from "../components/Layouts/BookingFormPageLayout";
 import MainPageLayout from "../components/Layouts/MainPageLayout";
 
 function BookingPage() {
   return (
     <MainPageLayout>
-      <BookingPageLayout />
+      <BookingFormPageLayout />
     </MainPageLayout>
   );
 }

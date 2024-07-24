@@ -42,7 +42,7 @@ function NavBar() {
           Produk
         </Link>
         <Link
-          to={"/booking"}
+          to={"/queue-list"}
           className="w-full text-center text-base py-2 text-primary bg-white hover:bg-stone-100"
         >
           Booking

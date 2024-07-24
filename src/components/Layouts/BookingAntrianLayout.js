@@ -1,14 +1,11 @@
-import BookingMenu from "../Elements/BookingMenu/BookingMenu";
-import PageTitle from "../Elements/Title/PageTitle";
 import BlueButton from "../Elements/Buttons/BlueButton";
 import BookingList from "../Fragments/BookingList";
 import AntrianCard from "../Elements/AntrianCard";
+import BookingPageLayout from "./BookingPageLayout";
 
-function AntrianPageLayout() {
+function BookingAntrianPage() {
   return (
-    <main className="flex flex-col flex-1 px-7 pb-12 pt-28 min-h-screen items-center bg-background">
-      <BookingMenu />
-      <PageTitle title={"Antrian Aktif"} />
+    <BookingPageLayout>
       <BookingList>
         <AntrianCard
           name={"Aryo Aditya"}
@@ -46,10 +43,9 @@ function AntrianPageLayout() {
           estimasi={"-"}
         />
       </BookingList>
-
       <BlueButton name={"Booking Sekarang"} />
-    </main>
+    </BookingPageLayout>
   );
 }
 
-export default AntrianPageLayout;
+export default BookingAntrianPage;
