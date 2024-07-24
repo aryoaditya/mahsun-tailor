@@ -18,8 +18,8 @@ function NavBar() {
         />
         <button onClick={handleToggle}>
           <img
-            className="w-[38px] h-[38px]"
-            src="/assets/icons/Menu Icon.png"
+            className="w-[38px] h-[38px] hover:scale-105 transition-all duration-100"
+            src="/assets/icons/menu.svg"
             alt=""
           />
         </button>
@@ -42,7 +42,7 @@ function NavBar() {
           Produk
         </Link>
         <Link
-          to={"/login"}
+          to={"/booking"}
           className="w-full text-center text-base py-2 text-primary bg-white hover:bg-stone-100"
         >
           Booking

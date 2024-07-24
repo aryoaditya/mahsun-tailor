@@ -6,6 +6,7 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
+import BookingAntrianPage from "./pages/bookingAntrian";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element: <ProductPage />,
+  },
+  {
+    path: "/booking",
+    element: <BookingAntrianPage />,
   },
 ]);
 
