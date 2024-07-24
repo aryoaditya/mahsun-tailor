@@ -8,7 +8,7 @@ function AuthLayout({ title, children }) {
     <div className="flex flex-col min-h-screen">
       <NavBar />
 
-      <main className="flex flex-col flex-1 pb-10">
+      <main className="flex flex-col flex-1 pb-10 pt-28">
         {/* Title */}
         <PageTitle title={title} />
 
