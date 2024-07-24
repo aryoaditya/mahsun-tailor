@@ -7,6 +7,9 @@ import RegisterPage from "./pages/register";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
 import BookingAntrianPage from "./pages/bookingAntrian";
+import BookingTransaksiPage from "./pages/bookingTransaksi";
+import BookingProsesPage from "./pages/bookingProses";
+import BookingSelesaiPage from "./pages/bookingSelesai";
 import BookingPage from "./pages/booking";
 
 const router = createBrowserRouter([
@@ -27,12 +30,24 @@ const router = createBrowserRouter([
     element: <ProductPage />,
   },
   {
-    path: "/queue-list",
+    path: "/booking",
+    element: <BookingPage />,
+  },
+  {
+    path: "/booking/queue",
     element: <BookingAntrianPage />,
   },
   {
-    path: "/booking",
-    element: <BookingPage />,
+    path: "/booking/transaction",
+    element: <BookingTransaksiPage />,
+  },
+  {
+    path: "/booking/process",
+    element: <BookingProsesPage />,
+  },
+  {
+    path: "/booking/finished",
+    element: <BookingSelesaiPage />,
   },
 ]);
 

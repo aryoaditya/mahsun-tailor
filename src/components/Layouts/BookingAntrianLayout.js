@@ -1,11 +1,11 @@
 import BlueButton from "../Elements/Buttons/BlueButton";
 import BookingList from "../Fragments/BookingList";
-import AntrianCard from "../Elements/AntrianCard";
+import AntrianCard from "../Fragments/AntrianCard";
 import BookingPageLayout from "./BookingPageLayout";
 
 function BookingAntrianPage() {
   return (
-    <BookingPageLayout>
+    <BookingPageLayout title={"Antrian Aktif"}>
       <BookingList>
         <AntrianCard
           name={"Aryo Aditya"}

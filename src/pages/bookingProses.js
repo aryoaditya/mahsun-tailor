@@ -1,10 +1,10 @@
 import MainPageLayout from "../components/Layouts/MainPageLayout";
-import BookingTransaksiLayout from "../components/Layouts/BookingTransaksiLayout";
+import BookingProsesLayout from "../components/Layouts/BookingProsesLayout";
 
 function BookingTransaksiPage() {
   return (
     <MainPageLayout>
-      <BookingTransaksiLayout />
+      <BookingProsesLayout />
     </MainPageLayout>
   );
 }
