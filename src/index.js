@@ -11,6 +11,9 @@ import BookingTransaksiPage from "./pages/bookingTransaksi";
 import BookingProsesPage from "./pages/bookingProses";
 import BookingSelesaiPage from "./pages/bookingSelesai";
 import BookingPage from "./pages/booking";
+import ForgotPasswordPage from "./pages/forgotPassword";
+import ChangePasswordPage from "./pages/changePassword";
+import PasswordVerificationPage from "./pages/passwordVerification";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,18 @@ const router = createBrowserRouter([
   {
     path: "/booking/finished",
     element: <BookingSelesaiPage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: "/forgot-password/verification",
+    element: <PasswordVerificationPage />,
+  },
+  {
+    path: "/change-password",
+    element: <ChangePasswordPage />,
   },
 ]);
 
