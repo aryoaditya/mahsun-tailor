@@ -4,7 +4,7 @@ import BookingPageLayout from "./BookingPageLayout";
 function BookingTransaksiLayout() {
   return (
     <BookingPageLayout title={"Transaksi Aktif"}>
-      <div className="rounded-lg bg-white shadow-md w-full">
+      <div className="rounded-lg bg-background shadow-md w-full">
         <div className="m-3 min-h-[100px] text-xs flex flex-col">
           <div className="flex justify-between items-center">
             <p className="font-bold text-sm text-primary">Jas Pria</p>

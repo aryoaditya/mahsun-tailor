@@ -4,7 +4,7 @@ import BlueButton from "../Elements/Buttons/BlueButton";
 function BookingSelesaiLayout() {
   return (
     <BookingPageLayout title={"Pesanan Selesai"}>
-      <div className="rounded-lg bg-white shadow-md w-full">
+      <div className="rounded-lg bg-background shadow-md w-full">
         <div className="m-3 min-h-[100px] text-xs flex flex-col">
           <div className="flex justify-between items-center">
             <p className="font-bold text-sm text-primary">Jas Pria</p>

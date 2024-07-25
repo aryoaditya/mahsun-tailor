@@ -19,8 +19,8 @@ function AntrianCard(props) {
       : "";
 
   return (
-    <div className="rounded-lg bg-white shadow-md w-full">
-      <div className="mx-2 bg-white p-0 min-h-[52px] text-xs flex flex-row items-center">
+    <div className="rounded-lg bg-background shadow-md w-full">
+      <div className="mx-2 p-0 min-h-[52px] text-xs flex flex-row items-center">
         <div>
           <div className="flex flex-wrap mr-1 w-16 h-full items-center justify-center">
             <div className="text-center">{name}</div>

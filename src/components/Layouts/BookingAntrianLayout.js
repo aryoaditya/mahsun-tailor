@@ -22,22 +22,22 @@ function BookingAntrianPage() {
           estimasi={"Estimasi: 18/9/2024"}
         />
         <AntrianCard
-          name={"Nabila Azzahwa"}
-          product={"Dress"}
+          name={"Aryo Aditya"}
+          product={"Custom"}
           orderStatus={"Order Ditolak"}
           processStatus={"-"}
           estimasi={"-"}
         />
         <AntrianCard
-          name={"Nabila Azzahwa"}
-          product={"Dress"}
+          name={"Aryo Aditya"}
+          product={"Custom"}
           orderStatus={"Pengajuan"}
           processStatus={"-"}
           estimasi={"-"}
         />
         <AntrianCard
-          name={"Nabila Azzahwa"}
-          product={"Dress"}
+          name={"Aryo Aditya"}
+          product={"Custom"}
           orderStatus={"Pengajuan"}
           processStatus={"-"}
           estimasi={"-"}
