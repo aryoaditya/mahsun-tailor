@@ -9,7 +9,7 @@ function BookingSelesaiLayout() {
         <div className="m-3 min-h-[100px] text-xs flex flex-col gap-3">
           <div className="flex justify-between items-center">
             <p className="font-bold text-sm text-primary">Jas Pria</p>
-            <BlueButton name={"Detail Order"} />
+            <BlueButton name={"Detail Order"} route={"/order"} />
           </div>
           <DetailContainerField
             row={"Estimasi selesai"}

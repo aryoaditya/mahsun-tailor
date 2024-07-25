@@ -15,6 +15,7 @@ import ForgotPasswordPage from "./pages/forgotPassword";
 import ChangePasswordPage from "./pages/changePassword";
 import PasswordVerificationPage from "./pages/passwordVerification";
 import PembayaranPage from "./pages/pembayaran";
+import DetailOrderPage from "./pages/detailOrder";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "/payment",
     element: <PembayaranPage />,
+  },
+  {
+    path: "/order",
+    element: <DetailOrderPage />,
   },
 ]);
 
