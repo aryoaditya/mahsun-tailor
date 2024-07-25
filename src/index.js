@@ -14,6 +14,7 @@ import BookingPage from "./pages/booking";
 import ForgotPasswordPage from "./pages/forgotPassword";
 import ChangePasswordPage from "./pages/changePassword";
 import PasswordVerificationPage from "./pages/passwordVerification";
+import PembayaranPage from "./pages/pembayaran";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/change-password",
     element: <ChangePasswordPage />,
+  },
+  {
+    path: "/payment",
+    element: <PembayaranPage />,
   },
 ]);
 

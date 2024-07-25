@@ -8,7 +8,7 @@ function BookingTransaksiLayout() {
         <div className="m-3 min-h-[100px] text-xs flex flex-col">
           <div className="flex justify-between items-center">
             <p className="font-bold text-sm text-primary">Jas Pria</p>
-            <BlueButton name={"Pilih Pembayaran"} />
+            <BlueButton name={"Pilih Pembayaran"} route={"/payment"} />
           </div>
           <div className="text-primary px-3 pt-2">
             <table>
