@@ -5,12 +5,12 @@ import PageTitle from "../Elements/Title/PageTitle";
 
 function FormForgotPassword() {
   return (
-    <div className="flex flex-col pb-12 pt-28 min-h-screen">
+    <div className="flex flex-col pb-12 pt-28 min-h-screen items-center">
       <PageTitle title={"Lupa Password"} />
-      <form action="" className="flex flex-col px-[66px] mb-4">
+      <form action="" className="flex flex-col px-[66px] mb-4 w-full max-w-xl">
         <Label label={"Email/username"} htmlFor="email" />
         <Input type={"email"} name="email" placeholder={"example@mail.com"} />
-        <div className="w-full text-[10px] px-2 text-primary">
+        <div className="w-full text-[10px] px-2 text-primary sm:text-xs">
           <p>
             Masukkan email atau username yang telah terhubung ke ke akun mahsun
             tailor.{" "}

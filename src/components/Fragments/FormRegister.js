@@ -4,8 +4,8 @@ import BlueButton from "../Elements/Buttons/BlueButton";
 
 function FormRegister() {
   return (
-    <div className="flex flex-col">
-      <form action="" className="flex flex-col px-[66px] mb-4">
+    <div className="flex flex-col items-center">
+      <form action="" className="flex flex-col px-[66px] mb-4 w-full max-w-xl">
         <Label label={"Nama"} htmlFor="name" />
         <Input type={"text"} name="name" placeholder={"cth: Thoha Mahsun"} />
 

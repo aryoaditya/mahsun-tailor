@@ -5,8 +5,8 @@ import ForgotPassword from "../Elements/ForgotPassword";
 
 function FormLogin() {
   return (
-    <div className="flex flex-col">
-      <form action="" className="flex flex-col px-[66px] mb-4">
+    <div className="flex flex-col items-center">
+      <form action="" className="flex flex-col px-[66px] mb-4 w-full max-w-xl">
         <Label label={"Email/username"} htmlFor="email" />
         <Input type={"email"} name="email" placeholder={"example@mail.com"} />
 
