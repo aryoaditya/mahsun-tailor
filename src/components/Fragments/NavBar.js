@@ -11,8 +11,8 @@ function NavBar() {
     setOpen(!open);
   }
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 shadow-sm">
-      <div className="py-3 px-4 flex justify-between items-center bg-white lg:mx-3">
+    <nav className="fixed top-0 left-0 right-0 z-10 shadow-sm ">
+      <div className="py-3 px-4 flex justify-between items-center w-full bg-white">
         {/* Logo */}
         <img
           className="w-[111px]"
@@ -21,7 +21,7 @@ function NavBar() {
         />
         <div className="flex items-center">
           {/* Navigation Menu */}
-          <div className="hidden lg:flex mr-10 gap-8">
+          <div className="hidden lg:mr-10 lg:flex gap-10">
             <NavigationMenu route={"/"} text={"Beranda"} />
             <NavigationMenu route={"/products"} text={"Produk"} />
             <NavigationMenu route={"/booking/queue"} text={"Booking"} />
