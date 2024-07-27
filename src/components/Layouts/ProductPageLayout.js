@@ -3,7 +3,7 @@ import PageTitle from "../Elements/Title/PageTitle";
 
 function ProductPageLayout() {
   return (
-    <main className="flex flex-col flex-1 px-7 pt-28 pb-12 min-h-screen items-center">
+    <main className="flex flex-col px-7 pt-28 pb-12 min-h-screen max-w-5xl items-center w-full">
       <PageTitle title={"Produk"} />
       <ProductCard
         productType={"Jas Pria"}
