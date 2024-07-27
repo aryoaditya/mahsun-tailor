@@ -5,7 +5,7 @@ import BlueButton from "../Elements/Buttons/BlueButton";
 
 function DetailOrderLayout() {
   return (
-    <main className="flex flex-col flex-1 px-7 pt-28 pb-12 min-h-screen items-center">
+    <main className="flex flex-col flex-1 px-7 pt-28 pb-12 min-h-screen items-center max-w-3xl">
       <PageTitle title={"Detail Order"} />
       <DetailContainer subtitle={"Transaksi Berhasil"}>
         <div className="flex flex-col w-full p-3 gap-3">
