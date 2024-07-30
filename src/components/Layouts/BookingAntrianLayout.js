@@ -2,8 +2,15 @@ import BlueButton from "../Elements/Buttons/BlueButton";
 import BookingList from "../Fragments/BookingList";
 import AntrianCard from "../Fragments/AntrianCard";
 import BookingPageLayout from "./BookingPageLayout";
+import { useEffect } from "react";
+import { getUsername } from "../../services/auth.service";
+
+const token = localStorage.getItem("token");
 
 function BookingAntrianPage() {
+  useEffect(() => {
+    getUsername(token);
+  }, []);
   return (
     <BookingPageLayout title={"Antrian Aktif"}>
       <BookingList>
