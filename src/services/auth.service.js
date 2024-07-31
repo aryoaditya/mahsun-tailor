@@ -23,6 +23,7 @@ export const register = (data, callback) => {
     });
 };
 
-export const getUsername = (token) => {
+export const getPayload = (token) => {
   const decoded = jwtDecode(token);
+  return decoded;
 };
