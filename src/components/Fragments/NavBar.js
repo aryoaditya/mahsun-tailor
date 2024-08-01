@@ -5,6 +5,7 @@ import BlueButton from "../Elements/Buttons/BlueButton";
 import NavigationToggleMenu from "../Elements/NavigationMenu/NavigationToggleMenu";
 import NavigationMenu from "../Elements/NavigationMenu/NavigationMenu";
 import { getPayload } from "../../services/auth.service";
+import LogoutButton from "../Elements/Buttons/LogoutButton";
 
 function NavBar() {
   const [name, setName] = useState("");
@@ -25,7 +26,6 @@ function NavBar() {
     location.pathname === "/login" || location.pathname === "/register";
 
   if (loading) {
-    // Show nothing or a loading spinner while loading
     return null;
   }
 
@@ -59,23 +59,11 @@ function NavBar() {
           {!isLoginOrRegister && (
             <>
               {name ? (
-                <div className="hidden font-semibold text-primary text-sm sm:flex sm:items-center">
-                  <p>hi, {name}</p>
-                  <button
-                    type="button"
-                    className="flex items-center justify-center px-2 py-1 ml-3 border border-slate-400 border-opacity-50 rounded-full hover:bg-slate-50"
-                    onClick={handleLogout}
-                  >
-                    <p className="text-xs font-medium text-black text-opacity-80 pl-[6px]">
-                      Log out
-                    </p>
-                    <img
-                      className="w-4 ml-1"
-                      src="/assets/icons/sign-out.svg"
-                      alt="sign-out"
-                    />
-                  </button>
-                </div>
+                <LogoutButton
+                  name={name}
+                  handleLogout={handleLogout}
+                  device={"non-mobile"}
+                />
               ) : (
                 <div className="hidden text-[13px] sm:flex gap-2 h-9 items-center justify-center">
                   <Link
@@ -122,23 +110,11 @@ function NavBar() {
         {!isLoginOrRegister && (
           <>
             {name ? (
-              <div className="flex justify-center items-center text-center font-semibold w-full bg-white text-primary text-sm py-3 sm:hidden">
-                <p>hi, {name}</p>
-                <button
-                  type="button"
-                  className="flex items-center justify-center px-2 py-1 ml-3 border border-slate-400 border-opacity-50 rounded-full"
-                  onClick={handleLogout}
-                >
-                  <p className="text-xs font-medium text-black text-opacity-80 pl-[6px]">
-                    Log out
-                  </p>
-                  <img
-                    className="w-4 ml-1"
-                    src="/assets/icons/sign-out.svg"
-                    alt="sign-out"
-                  />
-                </button>
-              </div>
+              <LogoutButton
+                name={name}
+                handleLogout={handleLogout}
+                device={"mobile"}
+              />
             ) : (
               <div className="flex w-full bg-white py-3 justify-center gap-2 text-[13px] sm:hidden">
                 <SecondaryButton name={"Sign Up"} route={"/register"} />
