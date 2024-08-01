@@ -1,28 +1,43 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SecondaryButton from "../Elements/Buttons/SecondaryButton";
 import BlueButton from "../Elements/Buttons/BlueButton";
 import NavigationToggleMenu from "../Elements/NavigationMenu/NavigationToggleMenu";
 import NavigationMenu from "../Elements/NavigationMenu/NavigationMenu";
 import { getPayload } from "../../services/auth.service";
-const token = localStorage.getItem("token");
 
 function NavBar() {
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
-  const isLoginOrRegister =
-    location.pathname === "/login" || location.pathname === "/register";
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
     if (token) {
       setName(getPayload(token).name);
     }
-  }, [name]);
+    setLoading(false);
+  }, []);
 
-  const [open, setOpen] = useState(false);
+  const isLoginOrRegister =
+    location.pathname === "/login" || location.pathname === "/register";
+
+  if (loading) {
+    // Show nothing or a loading spinner while loading
+    return null;
+  }
+
   function handleToggle(e) {
     setOpen(!open);
   }
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 shadow-sm ">
       <div className="py-3 px-4 flex justify-between items-center w-full bg-white md:px-7 lg:px-9">
@@ -49,6 +64,7 @@ function NavBar() {
                   <button
                     type="button"
                     className="flex items-center justify-center px-2 py-1 ml-3 border border-slate-400 border-opacity-50 rounded-full hover:bg-slate-50"
+                    onClick={handleLogout}
                   >
                     <p className="text-xs font-medium text-black text-opacity-80 pl-[6px]">
                       Log out
@@ -111,6 +127,7 @@ function NavBar() {
                 <button
                   type="button"
                   className="flex items-center justify-center px-2 py-1 ml-3 border border-slate-400 border-opacity-50 rounded-full"
+                  onClick={handleLogout}
                 >
                   <p className="text-xs font-medium text-black text-opacity-80 pl-[6px]">
                     Log out
