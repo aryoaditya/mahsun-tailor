@@ -40,6 +40,16 @@ function BookingFormPageLayout() {
     if (modelState.custom) selectedModels.push("Custom");
     if (modelState.lainnya) selectedModels.push("Lainnya");
 
+    if (e.target.measurement.value === "") {
+      setBookingFailed("Silakan pilih opsi pengukuran.");
+      return;
+    }
+
+    if (e.target.measurementLocation.value === "") {
+      setBookingFailed("Silakan pilih opsi lokasi pengukuran.");
+      return;
+    }
+
     const data = {
       userId: userId,
       name: e.target.name.value,
@@ -59,13 +69,17 @@ function BookingFormPageLayout() {
 
     createOrder(data, (status, res) => {
       if (status) {
-        uploadImage(formData, (status, res) => {
-          if (status) {
-            window.location.href = "/booking/queue/";
-          } else {
-            setBookingFailed(res);
-          }
-        });
+        if (!image) {
+          window.location.href = "/booking/queue/";
+        } else {
+          uploadImage(formData, (status, res) => {
+            if (status) {
+              window.location.href = "/booking/queue/";
+            } else {
+              setBookingFailed(res);
+            }
+          });
+        }
       } else {
         setBookingFailed(res);
       }
@@ -146,8 +160,8 @@ function BookingFormPageLayout() {
             label={"Apakah Anda perlu pengukuran?"}
             htmlFor={"measurement"}
           />
-          <Select>
-            <option value="" disabled selected hidden>
+          <Select name={"measurement"}>
+            <option value="" disabled hidden>
               Pilih opsi pengukuran
             </option>
             <option value="0">Tidak, saya punya contoh ukuran</option>
@@ -158,8 +172,8 @@ function BookingFormPageLayout() {
             label={"Apakah penjahit perlu datang ke rumah Anda?"}
             htmlFor={"measurementLocation"}
           />
-          <Select>
-            <option value="" disabled selected hidden>
+          <Select name={"measurementLocation"}>
+            <option value="" disabled hidden>
               Pilih lokasi pengukuran
             </option>
             <option value="0">Tidak perlu, saya kirim contoh ukuran</option>

@@ -2,19 +2,63 @@ import BlueButton from "../Elements/Buttons/BlueButton";
 import BookingList from "../Fragments/BookingList";
 import AntrianCard from "../Fragments/AntrianCard";
 import BookingPageLayout from "./BookingPageLayout";
-import { useEffect } from "react";
-import { getPayload } from "../../services/auth.service";
-
-const token = localStorage.getItem("token");
+import { useEffect, useState } from "react";
+import { getOrder } from "../../services/order.service";
 
 function BookingAntrianPage() {
+  const [orderList, setOrderList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchOrders = () => {
+    setLoading(true);
+    getOrder((status, res) => {
+      if (status) {
+        setOrderList(res.data);
+        setError(null);
+      } else {
+        setError(res);
+      }
+      setLoading(false);
+    });
+  };
+
   useEffect(() => {
-    if (token) getPayload(token);
+    fetchOrders();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <BookingPageLayout title={"Antrian Aktif"}>
       <BookingList>
-        <AntrianCard
+        {orderList.length > 0 ? (
+          orderList.map((order, index) => (
+            <>
+              {console.log(order)}
+              <AntrianCard
+                key={index}
+                name={order.userId.name}
+                product={order.model}
+                orderStatus={order.status}
+                orderDetail={order.orderDetail}
+                estimasi={order.estimatedDate}
+              />
+            </>
+          ))
+        ) : (
+          <>
+            <p>Tidak ada antrian aktif.</p>
+            <p>Silakan booking tanpa antrian.</p>
+          </>
+        )}
+        {/* <AntrianCard
           name={"Aryo Aditya"}
           product={"Jas Pria"}
           orderStatus={"Order Diterima"}
@@ -47,8 +91,8 @@ function BookingAntrianPage() {
           product={"Custom"}
           orderStatus={"Pengajuan"}
           processStatus={"-"}
-          estimasi={"-"}
-        />
+          estimasi={"-"} 
+        /> */}
       </BookingList>
       <div className="text-[13px]">
         <BlueButton name={"Booking Sekarang"} route={"/booking"} />
