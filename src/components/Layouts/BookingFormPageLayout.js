@@ -22,10 +22,12 @@ function BookingFormPageLayout() {
   const [image, setImage] = useState();
 
   useEffect(() => {
-    const payload = getPayload(token);
-    setDefaultName(payload.name);
-    setDefaultPhone(payload.phone);
-    setUserId(payload.userId);
+    if (token) {
+      const payload = getPayload(token);
+      setDefaultName(payload.name);
+      setDefaultPhone(payload.phone);
+      setUserId(payload.userId);
+    }
   }, []);
 
   const handleSubmit = (e) => {
@@ -145,7 +147,9 @@ function BookingFormPageLayout() {
             htmlFor={"measurement"}
           />
           <Select>
-            <option value="">Pilih opsi pengukuran</option>
+            <option value="" disabled selected hidden>
+              Pilih opsi pengukuran
+            </option>
             <option value="0">Tidak, saya punya contoh ukuran</option>
             <option value="1">Ya, saya ingin mengukur</option>
           </Select>
@@ -155,7 +159,9 @@ function BookingFormPageLayout() {
             htmlFor={"measurementLocation"}
           />
           <Select>
-            <option value="">Pilih lokasi pengukuran</option>
+            <option value="" disabled selected hidden>
+              Pilih lokasi pengukuran
+            </option>
             <option value="0">Tidak perlu, saya kirim contoh ukuran</option>
             <option value="1">Penjahit datang ke rumah saya</option>
             <option value="2">Saya datang ke penjahit</option>

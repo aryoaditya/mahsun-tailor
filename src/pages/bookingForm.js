@@ -1,7 +1,7 @@
 import BookingFormPageLayout from "../components/Layouts/BookingFormPageLayout";
 import MainPageLayout from "../components/Layouts/MainPageLayout";
 
-function BookingPage() {
+function BookingFormPage() {
   return (
     <MainPageLayout>
       <BookingFormPageLayout />
@@ -9,4 +9,4 @@ function BookingPage() {
   );
 }
 
-export default BookingPage;
+export default BookingFormPage;

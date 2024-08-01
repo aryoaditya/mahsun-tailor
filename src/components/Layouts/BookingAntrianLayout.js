@@ -9,7 +9,7 @@ const token = localStorage.getItem("token");
 
 function BookingAntrianPage() {
   useEffect(() => {
-    getPayload(token);
+    if (token) getPayload(token);
   }, []);
   return (
     <BookingPageLayout title={"Antrian Aktif"}>
