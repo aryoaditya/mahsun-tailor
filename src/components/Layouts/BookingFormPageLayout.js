@@ -5,11 +5,12 @@ import PageTitle from "../Elements/Title/PageTitle";
 import SecondaryButton from "../Elements/Buttons/SecondaryButton";
 import { useEffect, useState } from "react";
 import { getPayload } from "../../services/auth.service";
-import Checkbox from "../Elements/Checkbox";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { uploadImage } from "../../services/uploadImage.service";
 import { createOrder } from "../../services/order.service";
+import CheckboxModel from "../Elements/Input/CheckboxModel";
+import Select from "../Elements/Input/Select";
 const token = localStorage.getItem("token");
 
 function BookingFormPageLayout() {
@@ -31,11 +32,11 @@ function BookingFormPageLayout() {
     e.preventDefault();
 
     const selectedModels = [];
-    if (checkedJasPria) selectedModels.push("Jas Pria");
-    if (checkedKebaya) selectedModels.push("Kebaya");
-    if (checkedDress) selectedModels.push("Dress");
-    if (checkedCustom) selectedModels.push("Custom");
-    if (checkedLainnya) selectedModels.push("Lainnya");
+    if (modelState.jasPria) selectedModels.push("Jas Pria");
+    if (modelState.kebaya) selectedModels.push("Kebaya");
+    if (modelState.dress) selectedModels.push("Dress");
+    if (modelState.custom) selectedModels.push("Custom");
+    if (modelState.lainnya) selectedModels.push("Lainnya");
 
     const data = {
       userId: userId,
@@ -71,30 +72,20 @@ function BookingFormPageLayout() {
 
   // Dropdown checkbox
   const [isOpen, setIsOpen] = useState(false);
-  const [checkedJasPria, setCheckedJasPria] = useState(false);
-  const [checkedKebaya, setCheckedKebaya] = useState(false);
-  const [checkedDress, setCheckedDress] = useState(false);
-  const [checkedCustom, setCheckedCustom] = useState(false);
-  const [checkedLainnya, setCheckedLainnya] = useState(false);
 
-  const handleChangeJasPria = () => {
-    setCheckedJasPria(!checkedJasPria);
-  };
+  const [modelState, setModelState] = useState({
+    jasPria: false,
+    kebaya: false,
+    dress: false,
+    custom: false,
+    lainnya: false,
+  });
 
-  const handleChangeKebaya = () => {
-    setCheckedKebaya(!checkedKebaya);
-  };
-
-  const handleChangeDress = () => {
-    setCheckedDress(!checkedDress);
-  };
-
-  const handleChangeCustom = () => {
-    setCheckedCustom(!checkedCustom);
-  };
-
-  const handleChangeLainnya = () => {
-    setCheckedLainnya(!checkedLainnya);
+  const handleModelChange = (model) => {
+    setModelState((prevState) => ({
+      ...prevState,
+      [model]: !prevState[model],
+    }));
   };
 
   const toggleDropdown = () => {
@@ -102,7 +93,7 @@ function BookingFormPageLayout() {
   };
 
   return (
-    <main className="flex flex-col flex-1 px-7 pb-12 pt-28 min-h-screen items-center bg-background">
+    <main className="flex flex-col flex-1 px-7 pb-12 pt-28 min-h-screen w-full items-center max-w-3xl">
       <PageTitle title={"Booking"} />
       {bookingFailed && <p className="text-red-500">{bookingFailed}</p>}
       <div className="w-full">
@@ -125,54 +116,16 @@ function BookingFormPageLayout() {
             onChange={(e) => setDefaultPhone(e.target.value)}
           />
 
-          <div className="select-checkbox">
-            <Label
-              label={"Model busana apa yang Anda inginkan?"}
-              htmlFor={"model"}
-            />
-            <div
-              className="flex items-center justify-between select-box w-full h-10 rounded-md px-3 mb-3 border border-primary border-opacity-20 text-sm bg-white text-slate-500 text-opacity-80 font-normal focus:outline-sky-800 focus:outline-1"
-              onClick={toggleDropdown}
-            >
-              {"Pilih model"}
-              <img
-                className={`w-3 opacity-50 ${isOpen ? "rotate-180" : ""}`}
-                src="/assets/icons/dropdown-icon.svg"
-                alt="dropdown"
-              />
-            </div>
-            <div
-              className={`${
-                isOpen ? "block" : "hidden"
-              } flex flex-col gap-1 px-5 mb-3`}
-            >
-              <Checkbox
-                label={"Jas Pria"}
-                checked={checkedJasPria}
-                onChange={handleChangeJasPria}
-              />
-              <Checkbox
-                label={"Kebaya"}
-                checked={checkedKebaya}
-                onChange={handleChangeKebaya}
-              />
-              <Checkbox
-                label={"Dress"}
-                checked={checkedDress}
-                onChange={handleChangeDress}
-              />
-              <Checkbox
-                label={"Custom"}
-                checked={checkedCustom}
-                onChange={handleChangeCustom}
-              />
-              <Checkbox
-                label={"Lainnya"}
-                checked={checkedLainnya}
-                onChange={handleChangeLainnya}
-              />
-            </div>
-          </div>
+          <Label
+            label={"Model busana apa yang Anda inginkan?"}
+            htmlFor={"model"}
+          />
+          <CheckboxModel
+            toggleDropdown={toggleDropdown}
+            isOpen={isOpen}
+            modelState={modelState}
+            handleModelChange={handleModelChange}
+          />
 
           <Label label={"Alamat Anda"} htmlFor={"address"} />
           <Input
@@ -191,30 +144,22 @@ function BookingFormPageLayout() {
             label={"Apakah Anda perlu pengukuran?"}
             htmlFor={"measurement"}
           />
-          <select
-            name="measurement"
-            id="measurement"
-            className="custom-select w-full h-10 rounded-md px-3 mb-3 border bg-white border-primary border-opacity-20 text-sm text-primary focus:outline-sky-800 focus:outline-1"
-          >
+          <Select>
             <option value="">Pilih opsi pengukuran</option>
             <option value="0">Tidak, saya punya contoh ukuran</option>
             <option value="1">Ya, saya ingin mengukur</option>
-          </select>
+          </Select>
 
           <Label
             label={"Apakah penjahit perlu datang ke rumah Anda?"}
             htmlFor={"measurementLocation"}
           />
-          <select
-            name="measurementLocation"
-            id="measurementLocation"
-            className="custom-select w-full h-10 rounded-md px-3 mb-3 border bg-white border-primary border-opacity-20 text-sm text-slate-500 focus:outline-sky-800 focus:outline-1"
-          >
+          <Select>
             <option value="">Pilih lokasi pengukuran</option>
             <option value="0">Tidak perlu, saya kirim contoh ukuran</option>
             <option value="1">Penjahit datang ke rumah saya</option>
             <option value="2">Saya datang ke penjahit</option>
-          </select>
+          </Select>
 
           <Label
             label={"Estimasi tanggal selesai yang Anda harapkan?"}
@@ -239,7 +184,7 @@ function BookingFormPageLayout() {
           <textarea
             name="description"
             rows="4"
-            id=""
+            id="description"
             placeholder="Deskripsikan lebih detail"
             className="w-full align-top rounded-md py-3 px-3 mb-3 border border-primary border-opacity-20 text-sm text-primary focus:outline-sky-800 focus:outline-1"
           />
