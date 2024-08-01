@@ -1,11 +1,24 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import SecondaryButton from "../Elements/Buttons/SecondaryButton";
 import BlueButton from "../Elements/Buttons/BlueButton";
 import NavigationToggleMenu from "../Elements/NavigationMenu/NavigationToggleMenu";
 import NavigationMenu from "../Elements/NavigationMenu/NavigationMenu";
+import { getPayload } from "../../services/auth.service";
+const token = localStorage.getItem("token");
 
 function NavBar() {
+  const [name, setName] = useState("");
+  const location = useLocation();
+  const isLoginOrRegister =
+    location.pathname === "/login" || location.pathname === "/register";
+
+  useEffect(() => {
+    if (token) {
+      setName(getPayload(token).name);
+    }
+  }, [name]);
+
   const [open, setOpen] = useState(false);
   function handleToggle(e) {
     setOpen(!open);
@@ -28,22 +41,48 @@ function NavBar() {
             <NavigationMenu route={"/login"} text={"Tentang"} />
           </div>
           {/* Login and Register */}
-          <div className="hidden text-[13px] sm:flex gap-2 h-9 items-center justify-center">
-            <Link
-              to="/register"
-              className="font-bold py-[7px] flex items-center justify-center text-primary hover:text-opacity-70"
-            >
-              <p className="inline-block text-center mx-auto w-full">
-                Register
-              </p>
-            </Link>
-            <Link
-              to="/login"
-              className="w-20 font-bold py-[7px] flex items-center rounded-full bg-gradient-to-b from-gradient1 from-0% via-gradient2 via-70% to-gradient3 to-100% text-white hover:shadow-lg hover:scale-[101%] transition-all duration-100"
-            >
-              <p className="inline-block px-5 text-center w-full">Login</p>
-            </Link>
-          </div>
+          {!isLoginOrRegister && (
+            <>
+              {name ? (
+                <div className="hidden font-semibold text-primary text-sm sm:flex sm:items-center">
+                  <p>hi, {name}</p>
+                  <button
+                    type="button"
+                    className="flex items-center justify-center px-2 py-1 ml-3 border border-slate-400 border-opacity-50 rounded-full hover:bg-slate-50"
+                  >
+                    <p className="text-xs font-medium text-black text-opacity-80 pl-[6px]">
+                      Log out
+                    </p>
+                    <img
+                      className="w-4 ml-1"
+                      src="/assets/icons/sign-out.svg"
+                      alt="sign-out"
+                    />
+                  </button>
+                </div>
+              ) : (
+                <div className="hidden text-[13px] sm:flex gap-2 h-9 items-center justify-center">
+                  <Link
+                    to="/register"
+                    className="font-bold py-[7px] flex items-center justify-center text-primary hover:text-opacity-70"
+                  >
+                    <p className="inline-block text-center mx-auto w-full">
+                      Register
+                    </p>
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="w-20 font-bold py-[7px] flex items-center rounded-full bg-gradient-to-b from-gradient1 from-0% via-gradient2 via-70% to-gradient3 to-100% text-white hover:shadow-lg hover:scale-[101%] transition-all duration-100"
+                  >
+                    <p className="inline-block px-5 text-center w-full">
+                      Login
+                    </p>
+                  </Link>
+                </div>
+              )}
+            </>
+          )}
+
           {/* Menu Toggle Mobile*/}
           <button onClick={handleToggle} className="ml-5 lg:hidden">
             <img
@@ -64,10 +103,33 @@ function NavBar() {
         <NavigationToggleMenu route={"/products"} text={"Produk"} />
         <NavigationToggleMenu route={"/booking/queue"} text={"Booking"} />
         <NavigationToggleMenu route={"/login"} text={"Tentang"} />
-        <div className="flex w-full bg-white py-3 justify-center gap-2 text-[13px] sm:hidden">
-          <SecondaryButton name={"Sign Up"} route={"/register"} />
-          <BlueButton name={"Login"} route={"/login"} />
-        </div>
+        {!isLoginOrRegister && (
+          <>
+            {name ? (
+              <div className="flex justify-center items-center text-center font-semibold w-full bg-white text-primary text-sm py-3 sm:hidden">
+                <p>hi, {name}</p>
+                <button
+                  type="button"
+                  className="flex items-center justify-center px-2 py-1 ml-3 border border-slate-400 border-opacity-50 rounded-full"
+                >
+                  <p className="text-xs font-medium text-black text-opacity-80 pl-[6px]">
+                    Log out
+                  </p>
+                  <img
+                    className="w-4 ml-1"
+                    src="/assets/icons/sign-out.svg"
+                    alt="sign-out"
+                  />
+                </button>
+              </div>
+            ) : (
+              <div className="flex w-full bg-white py-3 justify-center gap-2 text-[13px] sm:hidden">
+                <SecondaryButton name={"Sign Up"} route={"/register"} />
+                <BlueButton name={"Login"} route={"/login"} />
+              </div>
+            )}
+          </>
+        )}
       </div>
     </nav>
   );
