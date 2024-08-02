@@ -40,17 +40,14 @@ function BookingAntrianPage() {
       <BookingList>
         {orderList.length > 0 ? (
           orderList.map((order, index) => (
-            <>
-              {console.log(order)}
-              <AntrianCard
-                key={index}
-                name={order.userId.name}
-                product={order.model}
-                orderStatus={order.status}
-                orderDetail={order.orderDetail}
-                estimasi={order.estimatedDate}
-              />
-            </>
+            <AntrianCard
+              key={index}
+              name={order.userId.name}
+              products={order.model}
+              orderStatus={order.status}
+              orderDetail={order.orderDetail}
+              estimasi={order.estimatedDate}
+            />
           ))
         ) : (
           <>

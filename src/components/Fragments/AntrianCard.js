@@ -2,9 +2,16 @@ import { format } from "date-fns";
 import { id } from "date-fns/locale";
 
 function AntrianCard(props) {
-  const { name, product, orderStatus, orderDetail, estimasi } = props;
+  const { name, products, orderStatus, orderDetail, estimasi } = props;
   let processStatus = "";
   let processStatusClass = "";
+  let product = products[0];
+
+  if (products.length === 2) {
+    product = product + " dan " + products[1];
+  } else if (products.length > 2) {
+    product = product + " dan " + (products.length - 1) + " lainnya";
+  }
 
   const formatDate = (dateString) => {
     return format(new Date(dateString), "dd MMMM yyyy", { locale: id });
@@ -32,7 +39,6 @@ function AntrianCard(props) {
     processStatus = "-";
     processStatusClass = "bg-yellow_status bg-opacity-20 text-primary";
   } else {
-    console.log(orderDetail.processStatus);
     if (orderDetail.processStatus === 0) {
       processStatus = "Menunggu Pembayaran";
       processStatusClass = "bg-yellow_status text-white";
@@ -59,29 +65,29 @@ function AntrianCard(props) {
       </div>
 
       {/* Order Status */}
-      <div className="flex flex-col gap-1 px-1 items-center justify-evenly h-full w-full border-l border-dashed border-l-stone-300">
+      <div className="flex flex-col gap-1 px-1 py-2 items-center justify-evenly h-full w-full border-l border-dashed border-l-stone-300">
         {/* Order, Product, Process Status */}
-        <div className="text-[11px] flex gap-1 w-full justify-evenly h-5 sm:text-xs sm:gap-4 md:text-sm md:h-6 md:gap-6">
+        <div className="text-[10px] flex gap-1 w-full justify-evenly min-h-5 sm:text-xs sm:gap-4 md:text-sm md:h-6 md:gap-6">
           {/* Order Product Type */}
-          <div className="bg-green_primary w-full text-white font-semibold flex items-center justify-center rounded-md">
-            {product}
+          <div className="bg-green_primary py-3 w-full text-white font-semibold flex items-center justify-center rounded-full">
+            <p className="text-center">{product}</p>
           </div>
 
           {/* Order Status */}
           <div
-            className={`${orderColorClass} w-full h-full text-white font-semibold flex items-center justify-center rounded-md`}
+            className={`${orderColorClass} py-3 w-full text-white font-semibold flex items-center justify-center rounded-full`}
           >
-            {status}
+            <p className="text-center">{status}</p>
           </div>
           {/* Process Status */}
           <div
-            className={`${processStatusClass} bg-green_status w-full h-full font-semibold flex items-center justify-center rounded-md`}
+            className={`${processStatusClass} bg-green_status py-3 w-full font-semibold flex items-center justify-center rounded-full`}
           >
-            {processStatus}
+            <p className="text-center">{processStatus}</p>
           </div>
         </div>
         {/* Estimation */}
-        <p className="font-medium text-xs text-primary">
+        <p className="font-medium text-[10px] mt-2 text-primary sm:text-xs">
           {processStatus === "Proses Selesai"
             ? `Selesai: ${formatedEstimation}`
             : `Estimasi selesai: ${formatedEstimation}`}
