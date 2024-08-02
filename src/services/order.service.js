@@ -16,9 +16,31 @@ export const createOrder = (data, callback) => {
     });
 };
 
-export const getOrder = (callback) => {
+export const getOrders = (callback) => {
   axios
     .get("http://localhost:8000/api/orders", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => callback(true, res.data))
+    .catch((err) => callback(false, err));
+};
+
+export const getUserPendingPayments = (callback) => {
+  axios
+    .get("http://localhost:8000/api/orders/pending-payment", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => callback(true, res.data))
+    .catch((err) => callback(false, err));
+};
+
+export const getUserCompletedOrders = (callback) => {
+  axios
+    .get("http://localhost:8000/api/orders/completed", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

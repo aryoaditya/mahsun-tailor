@@ -69,19 +69,19 @@ function AntrianCard(props) {
         {/* Order, Product, Process Status */}
         <div className="text-[10px] flex gap-1 w-full justify-evenly min-h-5 sm:text-xs sm:gap-4 md:text-sm md:h-6 md:gap-6">
           {/* Order Product Type */}
-          <div className="bg-green_primary py-3 w-full text-white font-semibold flex items-center justify-center rounded-full">
+          <div className="bg-green_primary p-1 sm:py-3 w-full text-white font-semibold flex items-center justify-center rounded-full">
             <p className="text-center">{product}</p>
           </div>
 
           {/* Order Status */}
           <div
-            className={`${orderColorClass} py-3 w-full text-white font-semibold flex items-center justify-center rounded-full`}
+            className={`${orderColorClass} p-1 sm:py-3 w-full text-white font-semibold flex items-center justify-center rounded-full`}
           >
             <p className="text-center">{status}</p>
           </div>
           {/* Process Status */}
           <div
-            className={`${processStatusClass} bg-green_status py-3 w-full font-semibold flex items-center justify-center rounded-full`}
+            className={`${processStatusClass} bg-green_status p-1 sm:py-3 w-full font-semibold flex items-center justify-center rounded-full`}
           >
             <p className="text-center">{processStatus}</p>
           </div>

@@ -3,7 +3,7 @@ import BookingList from "../Fragments/BookingList";
 import AntrianCard from "../Fragments/AntrianCard";
 import BookingPageLayout from "./BookingPageLayout";
 import { useEffect, useState } from "react";
-import { getOrder } from "../../services/order.service";
+import { getOrders } from "../../services/order.service";
 
 function BookingAntrianPage() {
   const [orderList, setOrderList] = useState([]);
@@ -12,7 +12,7 @@ function BookingAntrianPage() {
 
   const fetchOrders = () => {
     setLoading(true);
-    getOrder((status, res) => {
+    getOrders((status, res) => {
       if (status) {
         setOrderList(res.data);
         setError(null);
@@ -55,41 +55,6 @@ function BookingAntrianPage() {
             <p>Silakan booking tanpa antrian.</p>
           </>
         )}
-        {/* <AntrianCard
-          name={"Aryo Aditya"}
-          product={"Jas Pria"}
-          orderStatus={"Order Diterima"}
-          processStatus={"Proses Selesai"}
-          estimasi={"Selesai: 18/9/2024"}
-        />
-        <AntrianCard
-          name={"Kayla Rhaniera Sarasvati"}
-          product={"Kebaya"}
-          orderStatus={"Order Diterima"}
-          processStatus={"Proses Jahit"}
-          estimasi={"Estimasi: 18/9/2024"}
-        />
-        <AntrianCard
-          name={"Aryo Aditya"}
-          product={"Custom"}
-          orderStatus={"Order Ditolak"}
-          processStatus={"-"}
-          estimasi={"-"}
-        />
-        <AntrianCard
-          name={"Aryo Aditya"}
-          product={"Custom"}
-          orderStatus={"Pengajuan"}
-          processStatus={"-"}
-          estimasi={"-"}
-        />
-        <AntrianCard
-          name={"Aryo Aditya"}
-          product={"Custom"}
-          orderStatus={"Pengajuan"}
-          processStatus={"-"}
-          estimasi={"-"} 
-        /> */}
       </BookingList>
       <div className="text-[13px]">
         <BlueButton name={"Booking Sekarang"} route={"/booking"} />
