@@ -50,9 +50,37 @@ function NavBar() {
         <div className="flex items-center">
           {/* Navigation Menu */}
           <div className="hidden lg:mr-10 lg:flex gap-10">
-            <NavigationMenu route={"/"} text={"Beranda"} />
-            <NavigationMenu route={"/products"} text={"Produk"} />
-            <NavigationMenu route={"/booking/queue"} text={"Booking"} />
+            <NavigationMenu
+              route={"/"}
+              text={"Beranda"}
+              navClass={
+                location.pathname === "/"
+                  ? "font-bold"
+                  : "font-medium text-opacity-80"
+              }
+            />
+            <NavigationMenu
+              route={"/products"}
+              text={"Produk"}
+              navClass={
+                location.pathname === "/products"
+                  ? "font-bold"
+                  : "font-medium text-opacity-80"
+              }
+            />
+            <NavigationMenu
+              route={"/booking/queue"}
+              text={"Booking"}
+              navClass={
+                location.pathname === "/booking/queue" ||
+                location.pathname === "/booking" ||
+                location.pathname === "/booking/transaction" ||
+                location.pathname === "/booking/process" ||
+                location.pathname === "/booking/finished"
+                  ? "font-bold"
+                  : "font-medium text-opacity-80"
+              }
+            />
             <NavigationMenu route={"/login"} text={"Tentang"} />
           </div>
           {/* Login and Register */}
@@ -103,10 +131,34 @@ function NavBar() {
           open ? "block" : "hidden"
         } flex flex-col items-center border-t-[1px] shadow-md lg:hidden`}
       >
-        <NavigationToggleMenu route={"/"} text={"Beranda"} />
-        <NavigationToggleMenu route={"/products"} text={"Produk"} />
-        <NavigationToggleMenu route={"/booking/queue"} text={"Booking"} />
-        <NavigationToggleMenu route={"/login"} text={"Tentang"} />
+        <NavigationToggleMenu
+          route={"/"}
+          text={"Beranda"}
+          navClass={location.pathname === "/" ? "font-bold" : ""}
+        />
+        <NavigationToggleMenu
+          route={"/products"}
+          text={"Produk"}
+          navClass={location.pathname === "/products" ? "font-bold" : ""}
+        />
+        <NavigationToggleMenu
+          route={"/booking/queue"}
+          text={"Booking"}
+          navClass={
+            location.pathname === "/booking/queue" ||
+            location.pathname === "/booking" ||
+            location.pathname === "/booking/transaction" ||
+            location.pathname === "/booking/process" ||
+            location.pathname === "/booking/finished"
+              ? "font-bold"
+              : ""
+          }
+        />
+        <NavigationToggleMenu
+          route={"/login"}
+          text={"Tentang"}
+          navClass={location.pathname === "/about" ? "font-bold" : ""}
+        />
         {!isLoginOrRegister && (
           <>
             {name ? (
