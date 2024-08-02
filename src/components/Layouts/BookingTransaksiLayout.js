@@ -19,7 +19,6 @@ function BookingTransaksiLayout() {
         setError(null);
       } else {
         setError(res);
-        console.log({ success: status, res: res });
       }
       setLoading(false);
     });
