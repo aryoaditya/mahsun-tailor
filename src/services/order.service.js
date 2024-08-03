@@ -48,3 +48,14 @@ export const getUserCompletedOrders = (callback) => {
     .then((res) => callback(true, res.data))
     .catch((err) => callback(false, err));
 };
+
+export const getUserProcessOrders = (callback) => {
+  axios
+    .get("http://localhost:8000/api/orders/in-process", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => callback(true, res.data))
+    .catch((err) => callback(false, err));
+};
