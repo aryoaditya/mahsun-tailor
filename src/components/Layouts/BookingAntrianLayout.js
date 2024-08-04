@@ -45,7 +45,7 @@ function BookingAntrianPage() {
               name={order.userId.name}
               products={order.model}
               orderStatus={order.status}
-              orderDetail={order.orderDetail}
+              processStatus={order.processStatus}
               estimasi={order.estimatedDate}
             />
           ))

@@ -57,7 +57,7 @@ function BookingFormPageLayout() {
       model: selectedModels,
       customerAddress: e.target.address.value,
       city: e.target.city.value,
-      zip: e.target.zip.value,
+      postalCode: e.target.postalCode.value,
       needMeasurement: e.target.measurement.value,
       measurementLocation: e.target.measurementLocation.value,
       estimatedDate: e.target.estimation.value,
@@ -153,8 +153,8 @@ function BookingFormPageLayout() {
           <Label label={"Kota"} htmlFor={"city"} />
           <Input type={"text"} name={"city"} placeholder={"Jakarta Timur"} />
 
-          <Label label={"Kode Pos"} htmlFor={"zip"} />
-          <Input type={"text"} name={"zip"} placeholder={"13420"} />
+          <Label label={"Kode Pos"} htmlFor={"postalCode"} />
+          <Input type={"text"} name={"postalCode"} placeholder={"13420"} />
 
           <Label
             label={"Apakah Anda perlu pengukuran?"}

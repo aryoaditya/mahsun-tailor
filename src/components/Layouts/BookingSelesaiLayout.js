@@ -43,47 +43,51 @@ function BookingSelesaiLayout() {
 
   return (
     <BookingPageLayout title={"Pesanan Selesai"}>
-      {userCompletedOrderList.length > 0 ? (
-        userCompletedOrderList.map((userCompletedOrder, index) => (
-          <div
-            key={index}
-            className="rounded-lg bg-background shadow-md w-full max-w-3xl"
-          >
-            <div className="m-3 min-h-[100px] text-xs flex flex-col gap-3">
-              <DetailContainerField
-                row={"Model pesanan"}
-                value={userCompletedOrder.model.map((x) => x).join(", ")}
-              />
-              <DetailContainerField
-                row={"Estimasi selesai"}
-                value={formatDate(userCompletedOrder.estimatedDate)}
-              />
-              <DetailContainerField
-                row={"Pengukuran"}
-                value={userCompletedOrder.measurementLocation}
-              />
-              <DetailContainerField
-                row={"Deskripsi Pesanan"}
-                value={
-                  !userCompletedOrder.remarks ? "-" : userCompletedOrder.remarks
-                }
-              />
-              <DetailContainerField
-                row={"Total Tagihan"}
-                value={`Rp. ${userCompletedOrder.orderDetail.totalBill}`}
-              />
-              <div className="flex justify-end">
-                <BlueButton name={"Detail Order"} route={"/order"} />
+      <div className="flex flex-col items-center gap-5 w-full max-w-3xl">
+        {userCompletedOrderList.length > 0 ? (
+          userCompletedOrderList.map((userCompletedOrder, index) => (
+            <div
+              key={index}
+              className="rounded-lg bg-background shadow-md w-full max-w-3xl"
+            >
+              <div className="m-3 min-h-[100px] text-xs flex flex-col gap-3">
+                <DetailContainerField
+                  row={"Model pesanan"}
+                  value={userCompletedOrder.model.map((x) => x).join(", ")}
+                />
+                <DetailContainerField
+                  row={"Pesanan selesai"}
+                  value={formatDate(userCompletedOrder.estimatedDate)}
+                />
+                <DetailContainerField
+                  row={"Pengukuran"}
+                  value={userCompletedOrder.measurementLocation}
+                />
+                <DetailContainerField
+                  row={"Deskripsi Pesanan"}
+                  value={
+                    !userCompletedOrder.remarks
+                      ? "-"
+                      : userCompletedOrder.remarks
+                  }
+                />
+                <DetailContainerField
+                  row={"Total Tagihan"}
+                  value={`Rp. ${userCompletedOrder.transaction.totalPrice}`}
+                />
+                <div className="flex justify-end">
+                  <BlueButton name={"Detail Order"} route={"/order"} />
+                </div>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <>
-          <p>Hai, kamu belum ada riwayat pesanan</p>
-          <p>Yuk buat pesanan pertamamu! :D</p>
-        </>
-      )}
+          ))
+        ) : (
+          <>
+            <p>Hai, kamu belum ada riwayat pesanan</p>
+            <p>Yuk buat pesanan pertamamu! :D</p>
+          </>
+        )}
+      </div>
     </BookingPageLayout>
   );
 }

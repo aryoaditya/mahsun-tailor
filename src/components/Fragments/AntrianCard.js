@@ -2,8 +2,8 @@ import { format } from "date-fns";
 import { id } from "date-fns/locale";
 
 function AntrianCard(props) {
-  const { name, products, orderStatus, orderDetail, estimasi } = props;
-  let processStatus = "";
+  const { name, products, orderStatus, processStatus, estimasi } = props;
+  let processStatusValue = "";
   let processStatusClass = "";
   let product = products[0];
 
@@ -35,24 +35,24 @@ function AntrianCard(props) {
       ? "Order Ditolak"
       : "Dibatalkan";
 
-  if (!orderDetail) {
-    processStatus = "-";
+  if (!processStatus) {
+    processStatusValue = "-";
     processStatusClass = "bg-yellow_status bg-opacity-20 text-primary";
   } else {
-    if (orderDetail.processStatus === 0) {
-      processStatus = "Menunggu Pembayaran";
+    if (processStatus === "Waiting for Payment") {
+      processStatusValue = "Menunggu Pembayaran";
       processStatusClass = "bg-yellow_status text-white";
     }
-    if (orderDetail.processStatus === 1) {
-      processStatus = "Proses Jahit";
+    if (processStatus === "In Process") {
+      processStatusValue = "Proses Jahit";
       processStatusClass = "bg-yellow_status text-white";
     }
-    if (orderDetail.processStatus === 2) {
-      processStatus = "Proses Pengiriman";
+    if (processStatus === "In Delivery") {
+      processStatusValue = "Proses Pengiriman";
       processStatusClass = "bg-yellow_status text-white";
     }
-    if (orderDetail.processStatus === 3) {
-      processStatus = "Proses Selesai";
+    if (processStatus === "Completed") {
+      processStatusValue = "Proses Selesai";
       processStatusClass = "bg-green_status text-white";
     }
   }
@@ -69,26 +69,26 @@ function AntrianCard(props) {
         {/* Order, Product, Process Status */}
         <div className="text-[10px] flex gap-1 w-full justify-evenly min-h-5 sm:text-xs sm:gap-4 md:text-sm md:h-6 md:gap-6">
           {/* Order Product Type */}
-          <div className="bg-green_primary p-1 sm:py-3 w-full text-white font-semibold flex items-center justify-center rounded-full">
+          <div className="bg-green_primary py-1 sm:py-3 w-full text-white font-semibold flex items-center justify-center rounded-full">
             <p className="text-center">{product}</p>
           </div>
 
           {/* Order Status */}
           <div
-            className={`${orderColorClass} p-1 sm:py-3 w-full text-white font-semibold flex items-center justify-center rounded-full`}
+            className={`${orderColorClass} py-1 sm:py-3 w-full text-white font-semibold flex items-center justify-center rounded-full`}
           >
             <p className="text-center">{status}</p>
           </div>
           {/* Process Status */}
           <div
-            className={`${processStatusClass} bg-green_status p-1 sm:py-3 w-full font-semibold flex items-center justify-center rounded-full`}
+            className={`${processStatusClass} bg-green_status py-1 sm:py-3 w-full font-semibold flex items-center justify-center rounded-full`}
           >
-            <p className="text-center">{processStatus}</p>
+            <p className="text-center">{processStatusValue}</p>
           </div>
         </div>
         {/* Estimation */}
         <p className="font-medium text-[10px] mt-2 text-primary sm:text-xs">
-          {processStatus === "Proses Selesai"
+          {processStatusValue === "Proses Selesai"
             ? `Selesai: ${formatedEstimation}`
             : `Estimasi selesai: ${formatedEstimation}`}
         </p>
