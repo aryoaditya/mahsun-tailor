@@ -78,8 +78,7 @@ In addition, it is good to have an editor to work with the code like [VSCode](ht
    yarn add
    ```
 
-4. Configure your `.env` file according to your environment by following the template provided in the `.env.example` file.
-5. Start the project
+4. Start the project
    ```sh
    npm start
    ```
