@@ -6,7 +6,6 @@ function Label(props) {
       htmlFor={htmlFor}
       className="block text-primary font-normal text-[15px]"
     >
-      {" "}
       {label}
     </label>
   );

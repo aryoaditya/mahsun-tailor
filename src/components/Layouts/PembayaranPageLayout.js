@@ -6,7 +6,7 @@ import PageTitle from "../Elements/Title/PageTitle";
 
 function PembayaranPageLayout() {
   return (
-    <main className="flex flex-col flex-1 px-7 pt-28 pb-12 min-h-screen items-center">
+    <main className="flex flex-col flex-1 px-7 pt-28 pb-12 min-h-screen items-center max-w-3xl">
       <PageTitle title={"Transaksi Pembayaran"} />
       {/* Method Option */}
       <MethodOption subtitle={"Metode Pembayaran"} img={"bri"} name={"BRI"} />

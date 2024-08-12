@@ -5,9 +5,9 @@ import PageTitle from "../Elements/Title/PageTitle";
 
 function FormPasswordVerification() {
   return (
-    <div className="flex flex-col pb-12 pt-28 min-h-screen">
+    <div className="flex flex-col pb-12 pt-28 min-h-screen items-center">
       <PageTitle title={"Verifikasi Akun"} />
-      <form action="" className="flex flex-col px-[66px] mb-4">
+      <form action="" className="flex flex-col px-[66px] mb-4 w-full max-w-xl">
         <div className="text-primary text-[15px] mb-11 flex flex-col items-center">
           <p className="font-normal">Masukkan kode OTP yang dikirim ke email</p>
           <p className="font-bold">ar****9@****com</p>
@@ -15,7 +15,7 @@ function FormPasswordVerification() {
 
         <Label label={"Kode OTP"} htmlFor="otp" />
         <Input type={"text"} name="otp" placeholder={"Masukkan kode OTP"} />
-        <div className="w-full text-[10px] px-2 text-primary">
+        <div className="w-full text-[10px] px-2 text-primary sm:text-xs">
           <p>Perhatian: jangan beritahu kode OTP kepada siapapun.</p>
         </div>
 

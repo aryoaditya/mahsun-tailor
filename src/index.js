@@ -10,12 +10,13 @@ import BookingAntrianPage from "./pages/bookingAntrian";
 import BookingTransaksiPage from "./pages/bookingTransaksi";
 import BookingProsesPage from "./pages/bookingProses";
 import BookingSelesaiPage from "./pages/bookingSelesai";
-import BookingPage from "./pages/booking";
+import BookingFormPage from "./pages/bookingForm";
 import ForgotPasswordPage from "./pages/forgotPassword";
 import ChangePasswordPage from "./pages/changePassword";
 import PasswordVerificationPage from "./pages/passwordVerification";
 import PembayaranPage from "./pages/pembayaran";
 import DetailOrderPage from "./pages/detailOrder";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,23 +37,43 @@ const router = createBrowserRouter([
   },
   {
     path: "/booking",
-    element: <BookingPage />,
+    element: (
+      <PrivateRoute>
+        <BookingFormPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/booking/queue",
-    element: <BookingAntrianPage />,
+    element: (
+      <PrivateRoute>
+        <BookingAntrianPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/booking/transaction",
-    element: <BookingTransaksiPage />,
+    element: (
+      <PrivateRoute>
+        <BookingTransaksiPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/booking/process",
-    element: <BookingProsesPage />,
+    element: (
+      <PrivateRoute>
+        <BookingProsesPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/booking/finished",
-    element: <BookingSelesaiPage />,
+    element: (
+      <PrivateRoute>
+        <BookingSelesaiPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/forgot-password",
@@ -68,11 +89,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/payment",
-    element: <PembayaranPage />,
+    element: (
+      <PrivateRoute>
+        <PembayaranPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/order",
-    element: <DetailOrderPage />,
+    element: (
+      <PrivateRoute>
+        <DetailOrderPage />
+      </PrivateRoute>
+    ),
   },
 ]);
 
