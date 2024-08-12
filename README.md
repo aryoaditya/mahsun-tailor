@@ -1,12 +1,10 @@
 <h1 align="center">
-    <img alt="project" title="#About" src="./assets/banner.jpg" />
+    <img alt="project" title="#About" src="./public/assets/img/banner.png" />
 </h1>
 
 <h1 align="center">
   <a href="#"> MAHSUN TAILOR </a>
 </h1>
-
-<h3 align="center">We help you build your project in React!</h3>
 
 <p align="center">  
   <a href="https://github.com/aryoaditya/mahsun-tailor">
@@ -57,28 +55,32 @@ In addition, it is good to have an editor to work with the code like [VSCode](ht
 #### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/aryoaditya/mahsun-tailor.git
    ```
 
 2. Change directory
+
    ```sh
    cd mahsun-tailor
    ```
 
-2. Install NPM packages
+3. Install NPM packages
+
    ```sh
    npm install
    ```
+
    or
+
    ```sh
    yarn add
    ```
 
-3. Configure your `.env` file according to your environment by following the template provided in the `.env.example` file.
-   
-4. Start the project
-    ```sh
+4. Configure your `.env` file according to your environment by following the template provided in the `.env.example` file.
+5. Start the project
+   ```sh
    npm start
    ```
    or
